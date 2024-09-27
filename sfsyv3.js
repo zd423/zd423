@@ -1,3 +1,7 @@
+/**
+ * 顺丰速运 签到、任务
+ * cron "11 6,9,12,15,18 * * *" sfsyv3.js
+ */
 const _0x1366a8 = _0x1c156a("顺丰速运"),
   _0x149a58 = require("got"),
   _0x508ad7 = require("path"),
