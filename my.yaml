@@ -1,23 +1,45 @@
-mixed-port: 7890
-allow-lan: false
-mode: Rule
-log-level: info
+#==========================================
+# @ConfigName        借用墨鱼自用Clash配置文件**********感谢大佬
+# @Author            @ddgksf2013
+# @TgChannel         𝐡𝐭𝐭𝐩𝐬://𝐭.𝐦𝐞/𝐝𝐝𝐠𝐤𝐬𝐟𝟐𝟎𝟐𝟏
+# @WechatID          墨鱼手记
+# @Feedback          💡请通过邮件反馈问题[其它方式一概无视]：𝐝𝐝𝐠𝐤𝐬𝐟𝟐𝟎𝟏𝟑@𝟏𝟔𝟑.𝐜𝐨𝐦 💡
+# @UpdateTime        2025/04/12 20:45 UTC/GMT +8
+# @Function          支持手动选择、自动测速、广告屏蔽、兜底分流、按国家分组节点、多机场订阅等，配置同样适用ClashVerge   
+# @ClashVerge        https://github.com/clash-verge-rev/clash-verge-rev/releases
+# @Thanks            @blackmatrix7, @Fndroid, @Anti
+# @Attention         𝐏𝐥𝐞𝐚𝐬𝐞 𝐮𝐬𝐞 𝐭𝐡𝐞 𝐥𝐚𝐭𝐞𝐬𝐭 𝐯𝐞𝐫𝐬𝐢𝐨𝐧 𝐨𝐟 𝐂𝐥𝐚𝐬𝐡𝐟𝐨𝐫𝐖𝐢𝐧𝐝𝐨𝐰𝐬
+# @ConfigVersion     1.0.24
+#==========================================
+port: 7890           # HTTP 代理端口
+socks-port: 7891     # Socks 端口
+redir-port: 7892     # Redir 端口
+mixed-port: 7893     # 混合端口
+allow-lan: true      # 允许局域网连接
+bind-address: "*"    # 地址绑定
+mode: rule           # 规则模式
+log-level: info      # 日志级别
+ipv6: false          # IPV6开关
 external-controller: 127.0.0.1:9090
+#=========================================
 clash-for-android:
   append-system-dns: false
 hosts:
   mtalk.google.com: 108.177.125.188
+#=========================================
 dns:
-  enable: true
+  enable: true     # 不使用系统 DNS
   listen: 127.0.0.1:5335
   default-nameserver: [180.184.1.1, 119.29.29.29, 223.5.5.5]
-  ipv6: true
+  ipv6: true       # 开启 IPV6
   use-hosts: true
   fake-ip-filter: ["*.n.n.srv.nintendo.net", +.stun.playstation.net, xbox.*.*.microsoft.com, "*.msftncsi.com", "*.msftconnecttest.com", WORKGROUP, "*.lan", stun.*.*.*, stun.*.*, time.windows.com, time.nist.gov, time.apple.com, time.asia.apple.com, "*.ntp.org.cn", "*.openwrt.pool.ntp.org", time1.cloud.tencent.com, time.ustc.edu.cn, pool.ntp.org, ntp.ubuntu.com, "*.*.xboxlive.com", speedtest.cros.wr.pvp.net]
   nameserver: [tls://223.5.5.5:853, https://223.6.6.6/dns-query, https://120.53.53.53/dns-query]
   nameserver-policy: {+.tmall.com: 223.5.5.5, +.taobao.com: 223.5.5.5, +.alicdn.com: 223.5.5.5, +.aliyun.com: 223.5.5.5, +.alipay.com: 223.5.5.5, +.alibaba.com: 223.5.5.5, +.qq.com: 119.29.29.29, +.tencent.com: 119.29.29.29, +.weixin.com: 119.29.29.29, +.qpic.cn: 119.29.29.29, +.jd.com: 119.29.29.29, +.bilibili.com: 119.29.29.29, +.hdslb.com: 119.29.29.29, +.163.com: 119.29.29.29, +.126.com: 119.29.29.29, +.126.net: 119.29.29.29, +.127.net: 119.29.29.29, +.netease.com: 119.29.29.29, +.baidu.com: 223.5.5.5, +.bdstatic.com: 223.5.5.5, +.bilivideo.+: 119.29.29.29, +.iqiyi.com: 119.29.29.29, +.douyinvod.com: 180.184.1.1, +.douyin.com: 180.184.1.1, +.douyincdn.com: 180.184.1.1, +.douyinpic.com: 180.184.1.1, +.feishu.cn: 180.184.1.1}
   fallback: [https://101.101.101.101/dns-query, https://public.dns.iij.jp/dns-query, https://208.67.220.220/dns-query]
   fallback-filter: {geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32, 223.75.236.241/32, 182.43.124.6/32, 106.74.25.198/32], domain: [+.bianyuan.xyz, +.happynothings031.xyz, +.jsdelivr.net, +.proton.me]}
+
+#========= 建立锚点 =========#
 proxies:
   - {name: 🇩🇪 DE-G-Frankfurt Pro 9, server: engaged-cattle.shiner427.skin, port: 443, type: trojan, password: !<str> 74260690711105200, skip-cert-verify: false, udp: true}
   - {name: 🇬🇧 UK-G-London Pro 1, server: hardy-titmouse.shiner427.skin, port: 443, type: trojan, password: !<str> 74260690711105200, skip-cert-verify: false, udp: true}
